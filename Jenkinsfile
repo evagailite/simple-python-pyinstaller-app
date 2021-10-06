@@ -1,10 +1,10 @@
 pipeline {
     agent none
-    stages {
+    stages { docker { image 'ubuntu:20.04' } }
         stage('Prepare') {
             agent {
                 docker {
-                    image 'ubuntu:20.04'
+                    image 'python:2-alpine'
                 }
             }
             steps {
@@ -14,7 +14,7 @@ pipeline {
         stage('Test') {
             agent {
                 docker {
-                    image 'ubuntu:20.04'
+                    image 'qnib/pytest'
                 }
             }
             steps {
@@ -29,7 +29,7 @@ pipeline {
         stage('Deploy') {
             agent {
                 docker {
-                    image 'ubuntu:20.04'
+                    image 'cdrx/pyinstaller-linux:python2'
                 }
             }
             steps {
