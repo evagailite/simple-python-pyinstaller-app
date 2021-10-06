@@ -1,6 +1,6 @@
 pipeline {
-    agent none
-    stages { docker { image 'ubuntu:20.04' } }
+    agent { docker { image 'ubuntu:20.04' } }
+    stages 
         stage('Prepare') {
             agent {
                 docker {
