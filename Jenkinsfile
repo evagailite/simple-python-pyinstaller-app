@@ -4,7 +4,7 @@ pipeline {
         stage('Prepare') {
             agent {
                 docker {
-                    image 'python:2-alpine'
+                    image 'ubuntu:20.04'
                 }
             }
             steps {
